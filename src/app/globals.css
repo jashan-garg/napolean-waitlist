@@ -1,26 +1,153 @@
-@import "tailwindcss";
-
+@import 'tailwindcss';
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+    --gold: #c8a44b;
+    --muted: #9ca3af;
+    --white: #f5f5f5;
+    --border: #1f2937;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+    box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html,
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.85)),
+        url('/bg-napoleon.png') center / cover no-repeat fixed;
+    color: var(--white);
+    font-family:
+        Inter,
+        system-ui,
+        -apple-system,
+        sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    font-family: var(--font-baskerville), serif;
+}
+
+.container {
+    max-width: 520px;
+    width: 100%;
+    padding: 48px 28px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.18);
+    backdrop-filter: blur(3px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 18px;
+}
+
+.badge {
+    display: inline-block;
+    border: 1px solid var(--border);
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    color: var(--gold);
+    margin-bottom: 28px;
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    font-weight: 700;
+    margin: 0 0 16px;
+    letter-spacing: 0.5px;
+}
+
+p {
+    color: var(--muted);
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 36px;
+}
+
+form {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+input {
+    flex: 1;
+    padding: 14px 16px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: #0f0f0f;
+    color: var(--white);
+    font-size: 15px;
+    outline: none;
+}
+
+input::placeholder {
+    color: #6b7280;
+}
+
+input:focus {
+    border-color: var(--gold);
+}
+
+button {
+    padding: 14px 22px;
+    border-radius: 10px;
+    border: none;
+    background: linear-gradient(135deg, #e6c36a, #b08a2e);
+    color: #000;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+.note {
+    font-size: 13px;
+    color: #6b7280;
+}
+
+.whatsapp-link {
+    display: inline-block;
+    margin-top: 22px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--gold);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+}
+
+.whatsapp-link:hover {
+    border-color: var(--gold);
+}
+
+footer {
+    margin-top: 60px;
+    font-size: 12px;
+    color: #4b5563;
+}
+
+@media (max-width: 520px) {
+    h1 {
+        font-size: 38px;
+    }
+
+    form {
+        flex-direction: column;
+    }
+
+    button {
+        width: 100%;
+    }
 }
